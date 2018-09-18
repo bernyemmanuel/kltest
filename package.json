@@ -1,0 +1,65 @@
+{
+    "name": "repo-server",
+    "version": "1.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start-dev": "NODE_ENV=development JWT_KEY=kalhatti-jwt-secret2 NEXMO_API_KEY=3e36025b NEXMO_API_SECRET=b850740484c2111e babel-node server.js --presets es2015,stage-2",
+        "start": "JWT_KEY=kalhatti-jwt-secret2 NEXMO_API_KEY=3e36025b NEXMO_API_SECRET=b850740484c2111e babel-node server.js --presets es2015,stage-2",
+        "babel-node": "babel-node --presets es2015,stage-2",
+        "babel-node:inspect": "babel-node --inspect --presets es2015,stage-2",
+        "serve": "DEBUG=repo-server NODE_ENV=development JWT_KEY=kalhatti-jwt-secret2 NEXMO_API_KEY=3e36025b NEXMO_API_SECRET=b850740484c2111e nodemon --exec npm run babel-node -- ./server.js",
+        "test": "mocha",
+        "precommit": "lint-staged",
+        "prepush": "yarn test"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^7.2.3",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "eslint": "^4.6.1",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.3.0",
+        "husky": "^0.14.3",
+        "lint-staged": "^6.0.0",
+        "mocha": "^4.1.0",
+        "nodemon": "^1.17.5",
+        "prettier": "^1.10.2",
+        "supertest": "^3.0.0"
+    },
+    "dependencies": {
+        "async": "^2.6.1",
+        "bluebird": "^3.5.0",
+        "body-parser": "^1.17.2",
+        "ejs": "^2.6.1",
+        "express": "^4.15.4",
+        "express-winston": "^2.4.0",
+        "helmet": "^3.8.1",
+        "joi": "^10.6.0",
+        "jsonwebtoken": "^7.4.3",
+        "moment": "^2.19.1",
+        "moment-timezone": "^0.5.21",
+        "morgan": "^1.9.0",
+        "multer": "^1.3.0",
+        "mysql": "^2.14.1",
+        "mysql2": "^1.5.3",
+        "nexmo": "^2.0.2",
+        "nodemailer": "^4.6.8",
+        "request": "^2.83.0",
+        "sequelize": "^4.38.0",
+        "swagger-jsdoc": "^1.3.0",
+        "winston": "^2.4.0",
+        "winston-daily-rotate-file": "^1.7.2"
+    },
+    "lint-staged": {
+        "*.js": [
+            "prettier --single-quote --tab-width 4 --write",
+            "git add"
+        ]
+    }
+}
