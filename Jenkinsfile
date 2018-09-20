@@ -7,7 +7,7 @@ node {
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', 'docker-berny') {
-       def app = docker.build("bernyemmanuel/staging:${commit_id}", '.').push()
+       def app = docker.build("bernyemmanuel/staging:TEST${commit_id}", '.').push()
      }
    }
 }
